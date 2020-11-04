@@ -1,0 +1,2 @@
+# omamatest
+ go
