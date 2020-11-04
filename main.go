@@ -36,8 +36,8 @@ func main() {
 		fmt.Fprintln(w, "omamatestv3.md")
 	})
 	http.HandleFunc("/index", index)
-	fmt.Println("memulai web server pada localhost:8080")
-	http.ListenAndServe(":8080", nil)
+	fmt.Println("memulai web server pada localhost:8081")
+	http.ListenAndServe(":8081", nil)
 }
 
 func nilaimaksimal(number []int, ch chan int) {
