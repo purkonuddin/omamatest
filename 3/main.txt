@@ -1,0 +1,1 @@
+file: (soal 3) omamatest/main.go

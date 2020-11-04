@@ -33,7 +33,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "hello")
+		fmt.Fprintln(w, "omamatestv3.md")
 	})
 	http.HandleFunc("/index", index)
 	fmt.Println("memulai web server pada localhost:8080")
