@@ -53,7 +53,7 @@ tools used:
 
 
 create a file named Dockerfile,
-change environment golang GOOS = windows to GOOS = linux via windows powershell with the command $ Env: GOOS = "linux", to check the changes use the go env command.
+change environment golang GOOS = windows to GOOS = linux via windows powershell with the command $Env:GOOS="linux", to check the changes use the go env command.
 compile the main.go file with the go build command main.go via windows powershell or Viscode so that it produces a new file with the name "main" without extension
 open the Docker Quickstart Terminal, and run the command to create docker images using the Dockerfile:
      docker build -t <name docker images> -> to create a docker image
@@ -62,6 +62,21 @@ open the Docker Quickstart Terminal, and run the command to create docker images
      docker stop <name docker images> -> to stop the webservice
 
 to access the endpoint on the browser or postman use the docker ip 192.168.100 and the port that has been declared is 8080
+
+Upload Image to Resistry:
+buka dan login ke akun docker hub https://hub.docker.com/,
+create repository dengan nama goservice sehingga menghasilkan purkonud12119617/goservice 
+
+pada Docker Quickstart Terminal lakukan push dengan perintah:
+command:
+    > docker login -> login to hub docker
+    > docker tag goservice purkonud12119617/goservice:0.1 -> ubah nama image (goservice) dan sesuaikan dengan repository yang kita dapat pada hub docker (purkonud12119617/goservice:0.1)
+    > docker push purkonud12119617/goservice:0.1 -> push kedalam repository hub docker
+
+Hint: 
+    masih gagal pada proses push
+    unauthorized: authentication required
+
 
 # test
 command:
