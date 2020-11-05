@@ -5,11 +5,11 @@ import (
 )
 
 /*
-	Penerapan Fungsi Sebagai Parameter
-	Cara membuat parameter fungsi adalah dengan langsung menuliskan skema fungsi nya sebagai tipe data
-	Parameter callback merupakan sebuah closure yang dideklarasikan bertipe func(string) bool.
-	Closure tersebut dipanggil di tiap perulangan dalam fungsi filter().
-	Fungsi filter() untuk filtering data array (yang datanya didapat dari parameter pertama)
+	Application of Functions as Parameters
+The way to create a function parameter is to directly write the function scheme as a data type
+The callback parameter is a closure declared of type func (string) bool.
+The closure is called on each loop in the filter () function.
+Filter () function for filtering array data (which data is obtained from the first parameter)
 */
 
 func filter(data []int, callback func(int) bool) []int {
@@ -22,7 +22,7 @@ func filter(data []int, callback func(int) bool) []int {
 	return result
 }
 
-// IsPolindrom untuk test dan seleksi bilangan polindrom
+// IsPolindrom for the unit test and selecting palindrome numbers
 func IsPolindrom(barisData []int) []int {
 	var polindrom = filter(barisData, func(each int) bool {
 		var remainder, temp int
@@ -48,7 +48,7 @@ func main() {
 	var a, n int
 
 	/*
-		input dua bilangan a & n yang dipisahkan dengan karakter spasi (a n) sehingga menghasilkan barisan aritmatika antara a dan n (barisData)
+		input two numbers a and n separated by a space character (a n) resulting arithmetic sequence between a and n (barisData)
 	*/
 
 	fmt.Println("Input: ")
@@ -70,8 +70,7 @@ func main() {
 	dataPolindrom := IsPolindrom(barisData)
 
 	/*
-		polindrom => closure callback berisikan statement untuk deteksi polindrom tiap elemen.
-		Jika ada elemen yang polindrom, berarti elemen tersebut lolos filter.
+		palindrome => callback closure contains a statement to detect the palindrome number on each element. If any element is polyndrome, it means that element passed the filter.
 	*/
 
 	// var polindrom = filter(barisData, func(each int) bool {

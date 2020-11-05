@@ -21,7 +21,7 @@ type book struct {
 	bookID     string
 }
 
-// Kombinasi Slice & Struct untuk menampung data kategory
+// allCategories, Slice & Struct combination to accommodate category data
 var allCategories = []kategori{
 	{kID: 6, kName: "Applied Sciences (600)"},
 	{kID: 7, kName: "Arts (700)"},
@@ -35,7 +35,7 @@ var allCategories = []kategori{
 	{kID: 3, kName: "Literature (300)"},
 }
 
-// appendtostruct, Kombinasi Slice & Struct untuk menampung data indut kedalam struct buku
+// appendtostruct, Slice & Struct combination to accommodate input data into book structs
 func appendtostruct(s []string) []book {
 	var allBooks = []book{}
 	for _, bookID := range s {
@@ -49,13 +49,13 @@ func appendtostruct(s []string) []book {
 	return allBooks
 }
 
-// SortAllBooks fungsi ini digunakan untuk test
+// SortAllBooks This function is used for unit tests and sorting data
 func SortAllBooks(allBooks []book) []string {
-	//make chanel to sorting allBooks by category
+	//create channel to sort all Books data by category
 	var channel1 = make(chan []string)
-	//kirim channel1
+	//send channel1
 	go sortByCategory(allBooks, allCategories, channel1)
-	// tmpBooks untuk tampung data buku yang sudah di sorting
+	// tmpBooks, variable to accommodate book data that has been sorted
 	tmpBooks := <-channel1
 	return tmpBooks
 
@@ -67,10 +67,10 @@ func main() {
 	scanner.Scan()
 	input := scanner.Text()
 	s := strings.Split(input, " ")
-	// allBooks: untuk menampung data buku
+	// allBooks: to accommodate book data
 	allBooks := appendtostruct(s)
 
-	// fungsi untuk mengurutkan data allBooks
+	// tmpBooks, holds the processing result data in the SortAllBooks function
 	tmpBooks := SortAllBooks(allBooks)
 
 	output := strings.Join(tmpBooks, " ")

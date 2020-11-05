@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// hitung fungsi untuk menghitung jumlah deret angka
+// countData function to calculate the sum of the numbers
 func countData(angka []int) float64 {
 	var total float64 = 0
 	for _, angka := range angka {
@@ -15,7 +15,7 @@ func countData(angka []int) float64 {
 	return float64(total)
 }
 
-// jumlahSn fungsi untuk menghitung jumlah deret aritmatika dengan rumus Sn=1/2n(a+un)
+// countSn function to calculate the number of arithmetic series with the formula Sn = 1 / 2n (a + un)
 func countSn(deretAngka []int) float64 {
 	var channel2 = make(chan int)
 	go nilaimaksimal(deretAngka, channel2)
@@ -28,11 +28,11 @@ func countSn(deretAngka []int) float64 {
 	return float64(sn)
 }
 
-// SearchLessNumber untuk test dan mencari angka yang hilang
+// SearchLessNumber for the unit test and look for the missing numbers
 func SearchLessNumber(deretAngka []int) float64 {
 	countByDataReal := countData(deretAngka)
 	countByRumusSn := countSn(deretAngka)
-	// selisih kedua nya menghasilkan bilangan yang hilang
+	// The second increment value generates the missing numbers
 	hilang := countByRumusSn - countByDataReal
 
 	return hilang
@@ -42,7 +42,7 @@ func main() {
 
 	deretAngka := []int{23, 24, 25, 26, 27, 28, 30}
 
-	// menampilkan deret angka tanpa spasi
+	// displays a series of numbers without spaces
 	angka := func(deretAngka []int) []string {
 		result := []string{}
 		for _, a := range deretAngka {
@@ -53,9 +53,9 @@ func main() {
 
 	fmt.Println("Input: ", strings.Join(angka(deretAngka), ""))
 
-	// cari angka yang hilang
+	// look for a missing number
 	hilang := SearchLessNumber(deretAngka)
-	// output angka yang hilang
+	// The output displays a missing number
 	fmt.Println("hilang: ", hilang)
 }
 
