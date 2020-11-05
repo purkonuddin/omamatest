@@ -1,8 +1,8 @@
 # omamatest
 # soal 0 - Polindrom
-input dua bilangan yang dipisahkan dengan karakter spasi (a n) sehingga menghasilkan deret angka antara a dan n.
-kemudian dari deret angka tersebut akan diseleksi bilangan yang polindrom,
-outputnya akan  menghasilkan jumlah bilangan yang polindron 
+input two numbers separated by a space character (a n) to produce a number series between a and n.
+then from the series of numbers the polindrome numbers will be selected,
+the output will produce a polindron number length
 
 exp:.
     Input:
@@ -12,24 +12,24 @@ exp:.
     1
 
 # soal 1 - sorting kode buku berdasarkan kategori buku
-input deret kode buku secara acak yang dipisahkan dengan spasi, kode buku terdiri dari kode kategori, Judul buku, dan tinggi buku
-kode buku: "9Z99"
-    9 Kode kategori
-    Z Judul Buku
-    99 tinggi buku
+random input book code series separated by spaces, book code consists of category code, book title, and book height
+code book: "9Z99"
+     9 Category codes
+     Z Book Title
+     99 book height
 
-kemudian sistem akan mengurutkan data tersebut berdasarkan urutan kategori,
-kemudan diurutkan berdasarkan tnggi buku tertinggi ke rendah
+then the system will sort the data by category order,
+then the book codes are sorted by book height, highest to lowest
 
 exp:.
     input: 3A13 5X19 9Y20 2c18 1N20 3N20 1M21 1F14 9A21 3N21 0E13 5G14 8A23 9E22 3N14
     output: 0E13 9E22 9A21 9Y20 8A23 1M21 1N20 1F14 2c18 5X19 5G14 3N21 3N20 3N14 3A13
 
 # soal 2 - bilangan yang hilang dalam deret angka
-iputkan deret angka bertipe array string, dimana salah satu blangan nya dihilangkan
-sistem akan menghitung jumlah deret angka dengan rumus Sn = 1/2 * n * (a + un) kemudian membandingkannya dengan jumlah deret angka yang ada
-(ui+u2+u3+...)
-sehingga dihasilkan bilangan yang hilang
+input a series of numbers of type array string, where one of the numbers is omitted
+the system will calculate the number of number series with the formula Sn = 1/2 * n * (a + un) then compare it with the number of existing numbers
+(u1 + u2 + u3 + ...)
+the output is a missing number
 
 exp:. 
     deretAngka := []int{23, 24, 25, 26, 27, 28, 30}
@@ -39,36 +39,36 @@ exp:.
         Nilai yang hilang:  29
 
 # soal 3 - webservice untuk soal no 2
-jalankan aplikasi dengan perintah go run main.go kemudian enter,
-buka postman atau browser dan ketikan http://localhost:8081
+run the application with the command go run main.go then enter,
+open postman or browser and type http: // localhost: 8081
 end point:
     get http://localhost:8081/index
 
 # soal 4 - docker service
-tools yang digunakan:
-    docker toolbox
-    postman atau browser
-    windows powershell
-    Visual studio code
+tools used:
+     docker toolbox
+     postman or browser
+     windows powershell
+     Visual studio code
 
 
-buat file dengan nama Dockerfile,
-ubah environment golang GOOS=windows menjadi GOOS=linux melalui windows powershell dengan perintah $Env:GOOS="linux", untuk cek perubahannya gunakan perintah go env.
-compile file main.go dengan perintah go build main.go melalui windows powershell atau terminal text editor Viscode sehingga menghasilkan file baru dengan nama "main" tanpa extensi
-buka Docker Quickstart Terminal, dan lakukan perintah untuk membuat docker images menggunakan Dockerfile:
-    docker build -t <nama docker images>    -> untuk membuat docker image
-    docker images           -> untuk melihat docker images yang telah dibuat
-    docker run -it -p 8080:8081 <nama docker images>
-    docker stop <nama docker images> -> untuk menghentikan 
+create a file named Dockerfile,
+change environment golang GOOS = windows to GOOS = linux via windows powershell with the command $ Env: GOOS = "linux", to check the changes use the go env command.
+compile the main.go file with the go build command main.go via windows powershell or Viscode so that it produces a new file with the name "main" without extension
+open the Docker Quickstart Terminal, and run the command to create docker images using the Dockerfile:
+     docker build -t <name docker images> -> to create a docker image
+     docker images -> to see the docker images that have been created
+     docker run -it -p 8080: 8081 <name docker images> ->to run the webservice
+     docker stop <name docker images> -> to stop the webservice
 
-untuk mengakses endpoint pada browser atau postman gunakan ip docker 192.168.100 dan port yang sudah di deklarasikan yaitu 8080
+to access the endpoint on the browser or postman use the docker ip 192.168.100 and the port that has been declared is 8080
 
 # test
 command:
     go test
 
 output:
-if output_value same as right_falue(
+if the value equals the true value(
     PASS
     ok      omamatest/<folder_name>     0.000s
 )
