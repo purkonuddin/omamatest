@@ -21,7 +21,7 @@ type book struct {
 	bookID     string
 }
 
-// Kombinasi Slice & Struct
+// Kombinasi Slice & Struct untuk menampung data kategory
 var allCategories = []kategori{
 	{kID: 6, kName: "Applied Sciences (600)"},
 	{kID: 7, kName: "Arts (700)"},
@@ -35,9 +35,9 @@ var allCategories = []kategori{
 	{kID: 3, kName: "Literature (300)"},
 }
 
+// appendtostruct, Kombinasi Slice & Struct untuk menampung data indut kedalam struct buku
 func appendtostruct(s []string) []book {
 	var allBooks = []book{}
-
 	for _, bookID := range s {
 		categoryID, _ := strconv.Atoi(bookID[0:1])
 		bookName := bookID[1:2]
@@ -49,19 +49,29 @@ func appendtostruct(s []string) []book {
 	return allBooks
 }
 
+// SortAllBooks fungsi ini digunakan untuk test
+func SortAllBooks(allBooks []book) []string {
+	//make chanel to sorting allBooks by category
+	var channel1 = make(chan []string)
+	//kirim channel1
+	go sortByCategory(allBooks, allCategories, channel1)
+	// tmpBooks untuk tampung data buku yang sudah di sorting
+	tmpBooks := <-channel1
+	return tmpBooks
+
+}
+
 func main() {
 	fmt.Print("input : ")
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 	input := scanner.Text()
 	s := strings.Split(input, " ")
-
+	// allBooks: untuk menampung data buku
 	allBooks := appendtostruct(s)
 
-	var channel1 = make(chan []string)                   //make chanel to sorting by category
-	go sortByCategory(allBooks, allCategories, channel1) //kirim channel1
-
-	tmpBooks := <-channel1
+	// fungsi untuk mengurutkan data allBooks
+	tmpBooks := SortAllBooks(allBooks)
 
 	output := strings.Join(tmpBooks, " ")
 	fmt.Println("Output: ", output)

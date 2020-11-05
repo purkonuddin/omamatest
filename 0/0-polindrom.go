@@ -22,6 +22,28 @@ func filter(data []int, callback func(int) bool) []int {
 	return result
 }
 
+// IsPolindrom untuk test dan seleksi bilangan polindrom
+func IsPolindrom(barisData []int) []int {
+	var polindrom = filter(barisData, func(each int) bool {
+		var remainder, temp int
+		var reverse int = 0
+
+		temp = each
+
+		for {
+			remainder = each % 10
+			reverse = reverse*10 + remainder
+			each /= 10
+
+			if each == 0 {
+				break
+			}
+		}
+		return temp == reverse
+	})
+	return polindrom
+}
+
 func main() {
 	var a, n int
 
@@ -45,30 +67,32 @@ func main() {
 	// fmt.Printf("Output : \n %v %v \n", input1, input2)
 	// fmt.Println("baris data \t\t:", barisData)
 
+	dataPolindrom := IsPolindrom(barisData)
+
 	/*
 		polindrom => closure callback berisikan statement untuk deteksi polindrom tiap elemen.
 		Jika ada elemen yang polindrom, berarti elemen tersebut lolos filter.
 	*/
 
-	var polindrom = filter(barisData, func(each int) bool {
-		var remainder, temp int
-		var reverse int = 0
+	// var polindrom = filter(barisData, func(each int) bool {
+	// 	var remainder, temp int
+	// 	var reverse int = 0
 
-		temp = each
+	// 	temp = each
 
-		for {
-			remainder = each % 10
-			reverse = reverse*10 + remainder
-			each /= 10
+	// 	for {
+	// 		remainder = each % 10
+	// 		reverse = reverse*10 + remainder
+	// 		each /= 10
 
-			if each == 0 {
-				break
-			}
-		}
-		return temp == reverse
-	})
+	// 		if each == 0 {
+	// 			break
+	// 		}
+	// 	}
+	// 	return temp == reverse
+	// })
 
 	// fmt.Println("baris data polindrom \"1\"\t:", polindrom)
-	fmt.Printf("Output : \n %v \n", len(polindrom))
+	fmt.Printf("Output : \n %v \n", len(dataPolindrom))
 
 }
